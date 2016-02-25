@@ -3,7 +3,7 @@
 # script for test speed of ANONCVS servers response for OpenBSD
 
 >pingidoserwerow
-ftp -o - http://www.openbsd.org/anoncvs.html >anoncvs.html
+/usr/bin/ftp -o - http://www.openbsd.org/anoncvs.html >anoncvs.html
 grep CVSROOT= anoncvs.html |sed -e 's/^.*@//g' -e 's/:.*$//g' >serwery 2>/dev/null
 #curl http://www.openbsd.org/anoncvs.html |grep CVSROOT= |sed -e 's/^.*@//g' -e 's/:.*$//g' >serwery
 wait=`cat serwery|wc -l`
@@ -14,5 +14,5 @@ echo
 cat pingidoserwerow |grep [0-9]$ | sort -nk 2 |sed 's/$/\ ms/g'
 echo; echo The fastest mirror is:
 grep `cat pingidoserwerow |grep [0-9]$ | sort -nk 2 |head -1 |cut -f 1 -d" "` anoncvs.html |sed -e 's/^.*CVSROOT\>/CVSROOT/' -e 's/:\/cvs.*$/:\/cvs/g'
-
+\rm -f pingidoserwerow serwery 2>/dev/null
 #EOF
