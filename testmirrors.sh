@@ -22,8 +22,9 @@ fastest=`grep [0-9]$ /tmp/pingidoserwerow | sort -nk 2 |head -1 |cut -f 1 -d" "`
 export FASTEST="http://${fastest}/pub/OpenBSD"
 echo; echo -n "The fastest mirror is: $FASTEST"
 echo
-echo "export PKG_PATH=$FASTEST/`uname -r`/packages/`uname -p`"
+echo "export PKG_PATH=$FASTEST/`uname -r`/packages/`uname -p`/"
 sed -i '/export\ PKG/s/^/#/' /root/.profile
-echo "export PKG_PATH=$FASTEST/`uname -r`/packages/`uname -p`" >> /root/.profile
-#\rm -f /tmp/{pingidoserwerow,serwery,ftp.html}
+echo "export PKG_PATH=$FASTEST/`uname -r`/packages/`uname -p`/" >> /root/.profile
+export PKG_PATH=$FASTEST/`uname -r`/packages/`uname -p`/
+\rm -f /tmp/{pingidoserwerow,serwery,ftp.html}
 #EOF
