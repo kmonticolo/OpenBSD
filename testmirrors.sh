@@ -24,6 +24,7 @@ echo; echo -n "The fastest mirror is: $FASTEST"
 echo
 echo "export PKG_PATH=$FASTEST/`uname -r`/packages/`uname -p`/"
 sed -i '/export\ PKG/s/^/#/' /root/.profile
+echo "$FASTEST" >/root/.testmirrors
 echo "export PKG_PATH=$FASTEST/`uname -r`/packages/`uname -p`/" >> /root/.profile
 export PKG_PATH=$FASTEST/`uname -r`/packages/`uname -p`/
 \rm -f /tmp/{pingidoserwerow,serwery,ftp.html}
