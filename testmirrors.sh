@@ -27,5 +27,6 @@ sed -i '/export\ PKG/s/^/#/' /root/.profile
 echo "$FASTEST" >/root/.testmirrors
 echo "export PKG_PATH=$FASTEST/`uname -r`/packages/`uname -p`/" >> /root/.profile
 export PKG_PATH=$FASTEST/`uname -r`/packages/`uname -p`/
+export MIRROR=$FASTEST
 \rm -f /tmp/{pingidoserwerow,serwery,ftp.html}
 #EOF
