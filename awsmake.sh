@@ -14,4 +14,10 @@ export TMPDIR=/home
 
 ftp -o create-ami.sh https://raw.githubusercontent.com/ajacoutot/aws-openbsd/master/create-ami.sh                                        
 test -f create-ami.sh && chmod +x create-ami.sh
-./create-ami.sh -n
+# ./create-ami.sh -n
+ cd /usr/src ; ftp -o sys.tar.gz $MIRROR/6.0/sys.tar.gz
+tar zxf sys.tar.gz
+cd /usr/src/sys/arch/`uname -m`/conf
+config GENERIC
+cd ../compile/GENERIC/
+make
