@@ -12,4 +12,4 @@ export MIRROR=https://ftp.heanet.ie/pub/OpenBSD/
 export TMPDIR=/home
 ftp -o create-ami.sh https://raw.githubusercontent.com/ajacoutot/aws-openbsd/master/create-ami.sh                                        
 test -f create-ami.sh && chmod +x create-ami.sh
-create-ami.sh -n
+./create-ami.sh -n
